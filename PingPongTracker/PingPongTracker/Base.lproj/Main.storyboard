@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keT-kr-UBG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ping Pong Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PingPongTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,129 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-lv-wts">
+                                <rect key="frame" x="92" y="139" width="83" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="Player One Name"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHY-yu-KZV">
+                                <rect key="frame" x="128" y="284" width="11" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="Player One Score"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfi-c3-gHq">
+                                <rect key="frame" x="440" y="284" width="11" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="Player Two Score"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqb-YY-mEf">
+                                <rect key="frame" x="118" y="387" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Player One Increment Up"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="playerOneIncrementUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MEF-3G-1wx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3v-g8-oOu">
+                                <rect key="frame" x="430" y="387" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Player Two Increment Up"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="playerTwoIncrementUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FqI-Sf-QEn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Eu-PwH">
+                                <rect key="frame" x="118" y="442" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Player One Increment Down"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="playerOneIncrementDownButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bG-4d-lif"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5st-WH-lWb">
+                                <rect key="frame" x="430" y="442" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Player Two Increment Down"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="playerTwoIncrementDownButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8pE-t8-TDq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5l-fq-QHU">
+                                <rect key="frame" x="404" y="139" width="83" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="Player Two Name"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e5l-fq-QHU" firstAttribute="centerX" secondItem="Dfi-c3-gHq" secondAttribute="centerX" id="5YU-2b-RER"/>
+                            <constraint firstItem="Lqb-YY-mEf" firstAttribute="leading" secondItem="qza-Eu-PwH" secondAttribute="leading" id="F9h-c0-3ew"/>
+                            <constraint firstItem="mkm-lv-wts" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="72" id="Kex-eY-aBA"/>
+                            <constraint firstItem="t3v-g8-oOu" firstAttribute="leading" secondItem="Lqb-YY-mEf" secondAttribute="trailing" constant="282" id="MP4-bp-kBR"/>
+                            <constraint firstItem="aHY-yu-KZV" firstAttribute="centerX" secondItem="Lqb-YY-mEf" secondAttribute="centerX" id="NBM-cW-cjZ"/>
+                            <constraint firstItem="Dfi-c3-gHq" firstAttribute="centerX" secondItem="t3v-g8-oOu" secondAttribute="centerX" id="Q3M-yc-IMO"/>
+                            <constraint firstItem="t3v-g8-oOu" firstAttribute="leading" secondItem="5st-WH-lWb" secondAttribute="leading" id="XhM-z2-qdZ"/>
+                            <constraint firstItem="mkm-lv-wts" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="Zvg-9s-DnD"/>
+                            <constraint firstItem="mkm-lv-wts" firstAttribute="baseline" secondItem="e5l-fq-QHU" secondAttribute="baseline" id="a1i-Ds-Xrf"/>
+                            <constraint firstItem="mkm-lv-wts" firstAttribute="centerX" secondItem="aHY-yu-KZV" secondAttribute="centerX" id="bmR-gW-qFO"/>
+                            <constraint firstItem="aHY-yu-KZV" firstAttribute="baseline" secondItem="Dfi-c3-gHq" secondAttribute="baseline" id="d6M-hl-bdN"/>
+                            <constraint firstItem="Lqb-YY-mEf" firstAttribute="baseline" secondItem="t3v-g8-oOu" secondAttribute="baseline" id="dEJ-Pl-LJl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qza-Eu-PwH" secondAttribute="bottom" constant="128" id="kcn-jO-b16"/>
+                            <constraint firstItem="qza-Eu-PwH" firstAttribute="top" secondItem="Lqb-YY-mEf" secondAttribute="bottom" constant="25" id="nS3-eo-la4"/>
+                            <constraint firstItem="qza-Eu-PwH" firstAttribute="baseline" secondItem="5st-WH-lWb" secondAttribute="baseline" id="wkU-0T-ZR6"/>
+                            <constraint firstItem="Lqb-YY-mEf" firstAttribute="top" secondItem="aHY-yu-KZV" secondAttribute="bottom" constant="82" id="x6y-JU-Q8H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e5l-fq-QHU" secondAttribute="trailing" constant="93" id="yL9-w4-VKu"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MP4-bp-kBR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Ping Pong Tracker" id="NeN-ce-1NV">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Lj9-tj-Oaz">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="LPI-Y5-Is9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="playerOneNameLabel" destination="mkm-lv-wts" id="8RS-kk-Z5u"/>
+                        <outlet property="playerOneScoreLabel" destination="aHY-yu-KZV" id="yIi-PR-r6f"/>
+                        <outlet property="playerTwoNameLabel" destination="e5l-fq-QHU" id="lqd-M4-YeD"/>
+                        <outlet property="playerTwoScoreLabel" destination="Dfi-c3-gHq" id="hOG-sL-zzx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="902" y="-384"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y6H-bC-q7V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="keT-kr-UBG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CbC-UO-ygB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="r8K-Ne-9D4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aeq-bT-dmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="-384"/>
         </scene>
     </scenes>
 </document>
